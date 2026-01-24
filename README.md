@@ -1,12 +1,12 @@
-# POKEMON FULL STACK PERN CRUD APP
+# POKEMON FULL STACK PERN CRUD APP WITH JWT AUTHENTICTION AND POKEMON AUTO SUGGESTIONS FROM POKE API
 
 ## Features
 - a simplified UI
-- ability to create accounts and change usernames
-- ability to display user suggestions of all the pokemons
-- ability to authenticate users
-- ability to show users notifications for success and errors
-- ability to remove pokemons from pokeball using double click
+- users can create accounts and change usernames
+- auto suggestions of all the pokemons whenever user tries to add a pokemon
+- authentication for protected routes
+- notifications for success and errors
+- removal of pokemons from pokeball using double click
 - ability to display images of pokemons
 
 ## Tech stack
@@ -14,11 +14,16 @@
 - React
 - React hot toast
 - React router
+- import.meta.env
+- Vite
 
 ## Backend
 - Node.js
 - Express
-- JSON web token (JWT) authentication
+- JSON Web Token (JWT) authentication
+- Express Router
+- pg
+- dotenv
 
 ### Database
 - PostgreSQL
@@ -41,7 +46,7 @@ cd frontend
 npm install
 ```
 ### Create .env file for Frontend
-- ideally create two .env files one for production and other for development with key VITE_API_URL which should point to root and local backend respectively
+- ideally create two .env files one for production and other for development with key VITE_API_URL which should point to root and local backend respectively, for simplicity you can create a config file which imports using these two and simplifies it to simply BASE_URL
 
 ### Build Frontend so that it can be served by Backend
 ```
@@ -50,14 +55,14 @@ npm run build
 ### Now we move to Backend
 ```
 cd ..
-cd pokemon-app/backend
+cd backend
 ```
 ### Install Backend dependencies
 ```
 npm install
 ```
 ### Create .env file for Backend
-- create a .env file in backend folder with keys DB_PASSWORD and JWT_SECRET_KEY
+- create a .env file in backend folder with keys DB_PASSWORD, JWT_SECRET_KEY and DATABASE_URL which is just a connection string
 
 ### Start Backend
 ```
