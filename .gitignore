@@ -1,0 +1,11 @@
+# ignore all .env files
+**/.env
+
+# ignore all .env.something files
+**/.env.*
+
+# ignore all node_modules
+**/node_modules/
+
+# ignore frontend's dist folder
+frontend/dist/

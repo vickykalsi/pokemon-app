@@ -1,0 +1,44 @@
+/* for displaying pokeball page */
+.pokeball-page{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap:2vh;
+}
+
+/* for displaying pokeball */
+.pokeball {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+  grid-template-rows: auto;
+  overflow: auto;
+  scrollbar-color: red black;
+  scrollbar-width: thin;
+  scrollbar-gutter: stable;
+  height: 200px;
+  width:100%;
+  text-align: center;
+}
+
+/* for displaying pokemon suggestions */
+.pokemon-list {
+  overflow: auto;
+  cursor: pointer;
+  scrollbar-color: red black;
+  scrollbar-width: thin;
+  scrollbar-gutter: stable;
+  list-style-type: none;
+  padding-left: 0;
+  height: 200px;
+  text-align: center;
+}
+
+.pokemon-list ul{
+  list-style-type: none;
+  padding-left: 0;
+}
+
+/* for pokemon image */
+.pokemon-image {
+  width: 200px;
+}

@@ -1,0 +1,16 @@
+{
+  "name": "pokemon-fullstack-app",
+  "version": "1.0.0",
+  "description": "a full stack pern pokemon app",
+  "license": "ISC",
+  "author": "harpuneet",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"cd frontend/ && npm run dev\" \"cd backend/ && nodemon server.js\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "nodemon": "^3.1.11"
+  }
+}
