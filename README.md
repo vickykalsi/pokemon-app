@@ -1,4 +1,4 @@
-# POKEMON FULL STACK PERN CRUD APP WITH JWT AUTHENTICTION AND POKEMON AUTO SUGGESTIONS FROM POKE API
+# POKEMON FULL STACK PERN CRUD APP WITH JWT AUTHENTICATION AND POKEMON AUTO SUGGESTIONS FROM POKE API
 
 ## Features
 - a simplified UI
@@ -32,35 +32,23 @@
 - https://pokeapi.co/
 
 ## Installation and Setup
+
 ### Clone GitHub repo
 ```
 git clone https://github.com/vickykalsi/pokemon-app.git
 cd pokemon-app
 ```
-### Move to Frontend, it will be served by Backend
-```
-cd frontend
-```
-### Install Frontend dependencies
-```
-npm install
-```
-### Create .env file for Frontend
-- ideally create two .env files one for production and other for development with key VITE_API_URL which should point to root and local backend respectively, for simplicity you can create a config file which imports using these two and simplifies it to simply BASE_URL
 
-### Build Frontend so that it can be served by Backend
+### Move to Backend
 ```
-npm run build
-```
-### Now we move to Backend
-```
-cd ..
 cd backend
 ```
+
 ### Install Backend dependencies
 ```
 npm install
 ```
+
 ### Create .env file for Backend
 - create a .env file in backend folder with keys DB_PASSWORD, JWT_SECRET_KEY and DATABASE_URL which is just a connection string
 
@@ -68,4 +56,23 @@ npm install
 ```
 npm start
 ```
-### Visit http://localhost:3000/ on your browser
+
+### Move to Frontend
+```
+cd frontend
+```
+
+### Install Frontend dependencies
+```
+npm install
+```
+
+### Create .env file for Frontend
+- ideally create two .env files one for production and other for development with key VITE_API_URL which should point to production level root backend folder and development level root backend folder respectively, for simplicity you can create a config file which imports using these two and simplifies it to simply BASE_URL
+
+### Start Frontend
+```
+npm run dev
+```
+
+### Visit http://localhost:5173/ on your browser
