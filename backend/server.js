@@ -6,7 +6,7 @@ import cookieParser from "cookie-parser";
 import authMiddlware from "./middleware/authMiddleware.js"
 import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
-// import cors from "cors" not needed in production
+import cors from "cors"
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
@@ -18,9 +18,7 @@ if (process.env.NODE_ENV === "production") {
   app.set("trust proxy", 1);
 }
 
-if (process.env.NODE_ENV === "development") {
-  app.use(cors({ origin: "http://localhost:5173", credentials: true }));
-}
+app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }));
 app.use(cookieParser());
 app.use(express.json());
 
