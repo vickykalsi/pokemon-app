@@ -24,7 +24,7 @@ export async function checkUser(req, res) {
     }
     if (await bcrypt.compare(password, response1.rows[0].password_hash)) {
       const token = jwt.sign({ id: response1.rows[0].id }, process.env.JWT_SECRET_KEY, { expiresIn: "1h" });
-      res.cookie("token", token, { httpOnly: true, secure: process.env.NODE_ENV === "production", sameSite: "lax" });
+      res.cookie("token", token, { httpOnly: true, secure: process.env.NODE_ENV === "production", sameSite: "none" });
       return res.status(200).json({ status: "success", message: "user successfully logged in", data: { username } });
     }
     return res.status(401).json({ status: "failure", message: "incorrect credentials used" });
