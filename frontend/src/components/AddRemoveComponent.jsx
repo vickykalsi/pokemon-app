@@ -86,9 +86,11 @@ function AddRemoveComponent() {
       <NavLink to="/auth/pokeball">View your pokeball</NavLink>
       <NavLink to="/">Home</NavLink>
       <button type="button" onClick={buttonHandler} className="dynapuff">Logout</button>
-      <div className={styles["pokemon-list"]}>
-        {suggestions.length > 0 && <ul>{suggestions.map(suggestion => <li key={suggestion} onClick={() => selectHandler(suggestion)}>{suggestion}</li>)}</ul>}
-      </div>
+      {suggestions.length>0 &&
+        <div className={styles["pokemon-list"]}>
+          <ul>{suggestions.map(suggestion => <li key={suggestion} onClick={() => selectHandler(suggestion)}>{suggestion}</li>)}</ul>
+        </div>
+      }
     </form>
   </>
 }
