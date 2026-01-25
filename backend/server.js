@@ -6,7 +6,7 @@ import cookieParser from "cookie-parser";
 import authMiddlware from "./middleware/authMiddleware.js"
 import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
-import cors from "cors"
+// import cors from "cors" not needed in production
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
