@@ -33,7 +33,7 @@ function ListComponent() {
 
   async function buttonHandler() {
     try {
-      const response = await fetch(`${BASE_URL}logout`, {
+      const response = await fetch(`${BASE_URL}auth/logout`, {
         "credentials": "include",
         "method": "POST"
       });

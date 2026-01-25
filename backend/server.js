@@ -1,7 +1,7 @@
 import "dotenv/config";
 import express from "express";
 import initDB from "./db/initDB.js";
-import router from "./routes/pokemonRoutes.js";
+import { protectedRouter, publicRouter } from "./routes/pokemonRoutes.js";
 import cookieParser from "cookie-parser";
 import authMiddlware from "./middleware/authMiddleware.js"
 import path, { dirname } from 'path';
@@ -36,8 +36,8 @@ catch (err) {
   console.log("could not fetch all pokemon names");
 }
 
-app.use("/auth", authMiddlware);
-app.use(router);
+app.use("/auth", authMiddlware, protectedRouter);
+app.use("/", publicRouter);
 app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
 app.get(/.*/, (req, res) => {

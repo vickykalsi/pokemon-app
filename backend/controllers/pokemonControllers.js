@@ -7,7 +7,7 @@ function fetchPokemonsInPokeball(listOfPokemons) {
     return listOfPokemons.map(async (pokemon) => {
       const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
       const data = await response.json();
-      return { name: data.name, image: data.sprites.front_shiny };
+      return { name: data.name, image: data?.sprites?.front_shiny};
     })
   }
   catch (err) {
@@ -123,6 +123,6 @@ export async function editUsername(req, res) {
 }
 
 export function logoutUser(req, res) {
-  res.clearCookie("token", { httpOnly: true, secure: false, sameSite: "lax" });
+  res.clearCookie("token", { httpOnly: true, secure: process.env.NODE_ENV==="production", sameSite: "lax" });
   return res.status(200).json({ status: "success", message: "user logged out" });
 }

@@ -11,7 +11,7 @@ function LoginComponent() {
 
   async function clickHandler() {
     try {
-      const response = await fetch(`${BASE_URL}logout`, {
+      const response = await fetch(`${BASE_URL}auth/logout`, {
         "credentials": "include",
         "method": "POST"
       });
@@ -72,6 +72,7 @@ function LoginComponent() {
       <button type="submit" className="dynapuff">Log in</button>
       <button type="button" onClick={clickHandler} className="dynapuff">Logout</button>
       <NavLink to="/signup">Create a Pokeball</NavLink>
+      <NavLink to="/auth/pokeball">View your pokeball</NavLink>
     </form>
   </>
 }

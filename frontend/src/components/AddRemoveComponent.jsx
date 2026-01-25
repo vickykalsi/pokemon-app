@@ -14,7 +14,7 @@ function AddRemoveComponent() {
   useEffect(() => {
     async function getData() {
       const response = await fetch(`${BASE_URL}names`);
-      if(response.ok){
+      if (response.ok) {
         const names = await response.json();
         setPokemonNames(names.names);
       }
@@ -26,7 +26,6 @@ function AddRemoveComponent() {
   async function submitHandler(e) {
     try {
       e.preventDefault();
-      setNewPokemon("");
       const response = await fetch(`${BASE_URL}auth/add`, {
         "method": "POST",
         "headers": {
@@ -36,8 +35,10 @@ function AddRemoveComponent() {
         "body": JSON.stringify({ newPokemon })
       });
       const data = await response.json();
-      if (response.ok)
+      if (response.ok) {
+        setNewPokemon("");
         toast.success(data.message);
+      }
       else
         toast.error(data.message);
     }
@@ -48,11 +49,12 @@ function AddRemoveComponent() {
 
   async function buttonHandler() {
     try {
-      const response = await fetch(`${BASE_URL}logout`, {
+      const response = await fetch(`${BASE_URL}auth/logout`, {
         "method": "POST",
         "headers": {
           "Content-Type": "application/json"
-        }
+        },
+        "credentials": "include"
       });
       const data = await response.json();
       toast.success(data.message);

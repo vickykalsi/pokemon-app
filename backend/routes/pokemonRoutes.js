@@ -1,14 +1,12 @@
 import express from "express";
 import { checkUser, addUser, getPokemons, logoutUser, addPokemon, deletePokemon, editUsername } from "../controllers/pokemonControllers.js";
 
-const router = express.Router();
+export const protectedRouter = express.Router(), publicRouter = express.Router();
 
-router.post("/", checkUser);
-router.post("/signup", addUser);
-router.get("/auth/pokeball", getPokemons);
-router.post("/auth/add", addPokemon);
-router.delete("/auth/delete", deletePokemon);
-router.put("/auth/edit", editUsername);
-router.post("/logout", logoutUser);
-
-export default router;
+publicRouter.post("/", checkUser);
+publicRouter.post("/signup", addUser);
+protectedRouter.get("/pokeball", getPokemons);
+protectedRouter.post("/add", addPokemon);
+protectedRouter.delete("/delete", deletePokemon);
+protectedRouter.put("/edit", editUsername);
+protectedRouter.post("/logout", logoutUser);
