@@ -4,11 +4,9 @@ import initDB from "./db/initDB.js";
 import { protectedRouter, publicRouter } from "./routes/pokemonRoutes.js";
 import cookieParser from "cookie-parser";
 import authMiddlware from "./middleware/authMiddleware.js"
-import path, { dirname } from 'path';
-import { fileURLToPath } from 'url';
 import cors from "cors"
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
+
 const app = express();
 const PORT = process.env.PORT || 3000
 
@@ -36,11 +34,6 @@ catch (err) {
 
 app.use("/auth", authMiddlware, protectedRouter);
 app.use("/", publicRouter);
-app.use(express.static(path.join(__dirname, "../frontend/dist")));
-
-app.get(/.*/, (req, res) => {
-  res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
-})
 
 app.listen(PORT, () => {
   console.log(`server is listening at port ${PORT}`);
