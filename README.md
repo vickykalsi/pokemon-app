@@ -39,6 +39,17 @@ git clone https://github.com/vickykalsi/pokemon-app.git
 cd pokemon-app
 ```
 
+### Database Setup
+- make sure postgres is installed and create a database pokemon so that app can work
+```
+psql
+```
+then enter your password
+```
+CREATE DATABASE pokemon;
+\q
+```
+
 ### Move to Backend
 ```
 cd backend
